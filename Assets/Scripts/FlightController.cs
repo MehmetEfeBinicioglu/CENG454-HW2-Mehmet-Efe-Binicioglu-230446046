@@ -1,6 +1,6 @@
 // FlightController.cs
-// CENG 454 - HW1: Sky-High Prototype
-// Author: Mehmet Efe Binicioglu | Student ID: 230446046
+// CENG 454 - HW2 Midterm: Sky-High Prototype II
+// Author: Mehmet Efe Binicioğlu | Student ID: 230446046
 
 using UnityEngine;
 using UnityEngine.InputSystem;
