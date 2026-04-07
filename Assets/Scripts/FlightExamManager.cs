@@ -12,8 +12,8 @@ public class FlightExamManager : MonoBehaviour
     [SerializeField] private TMP_Text missionText;
 
     [Header("Audio Events")]
-    [SerializeField] private AudioSource warningAudio; // Danger Zone
-    [SerializeField] private AudioSource successAudio; // Mission Accomplished
+    [SerializeField] private AudioSource warningAudio; // Danger Zone Warning Sound Effect
+    [SerializeField] private AudioSource successAudio; // Mission Accomplished Sound Effect
 
     private bool isDead = false;
     private bool threatCleared = false; 
@@ -63,7 +63,7 @@ public class FlightExamManager : MonoBehaviour
         }
         else
         {
-            statusText.text = "FAILED!";
+            statusText.text = "MISSION FAILED!";
             statusText.color = Color.yellow;
         }
     }
