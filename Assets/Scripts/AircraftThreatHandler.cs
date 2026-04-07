@@ -7,7 +7,7 @@ using UnityEngine;
 public class AircraftThreatHandler : MonoBehaviour
 {
     [SerializeField] private Transform respawnPoint; 
-    [SerializeField] private AudioSource hitAudioSource; // Patlama Sesi
+    [SerializeField] private AudioSource hitAudioSource;
     [SerializeField] private FlightExamManager examManager;
 
     private Rigidbody rb;
@@ -21,21 +21,19 @@ public class AircraftThreatHandler : MonoBehaviour
     {
         if (collision.CompareTag("Missile"))
         {
-            // SES: Patlama sesini çal
+            // Sound Effect
             if (hitAudioSource != null) hitAudioSource.Play();
 
-            // RESPAWN: Piste ışınla
+            // Respawn
             transform.position = respawnPoint.position;
             transform.rotation = respawnPoint.rotation;
 
-            // Fizik sıfırlama
             if (rb != null)
             {
                 rb.linearVelocity = Vector3.zero; 
                 rb.angularVelocity = Vector3.zero;
             }
 
-            // Manager'a haber ver (Yazı ve Alarm için)
             if (examManager != null) examManager.HandleFailure();
 
             Destroy(collision.gameObject);
