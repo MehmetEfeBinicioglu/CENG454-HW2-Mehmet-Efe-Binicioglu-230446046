@@ -316,8 +316,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216673447}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12066254, y: -0.002208425, z: 0.0002684371, w: 0.9926911}
-  m_LocalPosition: {x: 46.6, y: 9.7, z: 176.9}
+  m_LocalRotation: {x: 0.120662525, y: -0.0023534992, z: 0.00028607008, w: 0.9926908}
+  m_LocalPosition: {x: 46.6, y: 9.65, z: 176.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -912,8 +912,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492266597}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.120662555, y: -0.0022084252, z: 0.00026843618, w: 0.9926911}
-  m_LocalPosition: {x: 46.6, y: 9.7, z: 176.9}
+  m_LocalRotation: {x: 0.12066255, y: -0.0023534999, z: 0.00028607022, w: 0.9926908}
+  m_LocalPosition: {x: 46.6, y: 9.65, z: 176.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1156,7 +1156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6d4cfbc0686ed48c3bfca40a3f0a790d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6d4cfbc0686ed48c3bfca40a3f0a790d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1323,7 +1323,7 @@ MonoBehaviour:
   pitchSpeed: 50
   yawSpeed: 50
   rollSpeed: 50
-  thrustSpeed: 21
+  thrustSpeed: 22
 --- !u!54 &766979105
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1596,7 +1596,7 @@ Transform:
   m_GameObject: {fileID: 771326919}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 46.61, y: 0.4, z: 887.1}
+  m_LocalPosition: {x: 49.3, y: 0.4, z: 887.1}
   m_LocalScale: {x: 2.2718694, y: 18.724298, z: 8.61319}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1634,6 +1634,7 @@ GameObject:
   - component: {fileID: 912842872}
   - component: {fileID: 912842871}
   - component: {fileID: 912842870}
+  - component: {fileID: 912842874}
   m_Layer: 0
   m_Name: Landing Zone Trigger
   m_TagString: LandingArea
@@ -1728,12 +1729,25 @@ Transform:
   m_GameObject: {fileID: 912842869}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 46.8, y: -0.00004, z: 889}
+  m_LocalPosition: {x: 46.8, y: -5.7, z: 887.4}
   m_LocalScale: {x: 36.353653, y: 36.296516, z: 92.96027}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &912842874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912842869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84fb7de504fba049aa4e1015b31362b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LandingTrigger
+  manager: {fileID: 310225744}
 --- !u!1 &944346828
 GameObject:
   m_ObjectHideFlags: 0

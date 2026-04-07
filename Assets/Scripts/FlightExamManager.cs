@@ -10,55 +10,70 @@ public class FlightExamManager : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] private TMP_Text statusText;
     [SerializeField] private TMP_Text missionText;
-    
+
     [Header("Audio Events")]
-    [SerializeField] private AudioSource warningAudio;
-    [SerializeField] private AudioSource successAudio;
+    [SerializeField] private AudioSource warningAudio; // Danger Zone
+    [SerializeField] private AudioSource successAudio; // Mission Accomplished
 
     private bool isDead = false;
-    private bool threatCleared = true;
+    private bool threatCleared = false; 
+
+    void Start()
+    {
+        statusText.text = "MISSION START: Fly to Danger Zone";
+        statusText.color = Color.white;
+        if (missionText != null) missionText.text = "Objective: Takeoff";
+    }
 
     public void EnterDangerZone()
     {
-        isDead = false;
-        threatCleared = false;
+        if (isDead) return;
         
+        threatCleared = false; 
         statusText.text = "Entered a Dangerous Zone!";
         statusText.color = Color.red;
-
-        if (missionText != null) 
-            missionText.text = "Objective: Survive and Escape the Valley!";
-
-        // ALARM
-        if (warningAudio != null && !warningAudio.isPlaying) 
-            warningAudio.Play();
+        if (missionText != null) missionText.text = "Objective: Survive and Escape!";
+        
+        if (warningAudio != null && !warningAudio.isPlaying) warningAudio.Play();
     }
 
     public void ExitDangerZone()
     {
-        if (!isDead)
-        {
-            threatCleared = true;
-            statusText.text = "Threat Cleared! Proceed to Landing.";
-            statusText.color = Color.green;
+        if (isDead) return;
 
-            if (missionText != null) 
-                missionText.text = "Objective: Land Safely at Landing Zone";
-            if (warningAudio != null) warningAudio.Stop();
-            if (successAudio != null) successAudio.Play();
+        threatCleared = true; 
+        statusText.text = "Threat Cleared! Ready to Land!";
+        statusText.color = Color.green;
+        if (missionText != null) missionText.text = "Objective: Return and Land";
+        if (warningAudio != null) warningAudio.Stop();
+    }
+
+    public void LandingDetected()
+    {
+        if (isDead) return;
+
+        if (threatCleared)
+        {
+            statusText.text = "MISSION ACCOMPLISHED!";
+            statusText.color = Color.cyan;
+            
+            if (successAudio != null && !successAudio.isPlaying) successAudio.Play();
+            
+            Debug.Log("Final Mission Loop Completed Successfully!");
+        }
+        else
+        {
+            statusText.text = "FAILED!";
+            statusText.color = Color.yellow;
         }
     }
 
     public void HandleFailure()
     {
-        isDead = true; 
-        
-        statusText.text = "CRITICAL HIT! AIRCRAFT DESTROYED";
+        isDead = true;
+        statusText.text = "AIRCRAFT DESTROYED!";
         statusText.color = Color.red;
-
-        if (missionText != null) 
-            missionText.text = "STATUS: Respawning at Base...";
-
+        
         if (warningAudio != null) warningAudio.Stop();
     }
 }
